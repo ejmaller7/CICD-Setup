@@ -6,21 +6,21 @@ on:
       - develop
 
 jobs:
-  test:
+  cypress-run:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
-      
-      - name: Install dependencies
+        
+      - name: Install Dependencies
         run: npm install
-      
+        
       - name: Build Server
         run: npm run build
-      
-      - name: Run Cypress tests
+        
+      - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
           start: npm start
-          wait-on: http://localhost:3000
+          wait-on: 'http://localhost:3001'
+          wait-on-timeout: 120
