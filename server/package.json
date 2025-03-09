@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && if not exist dist\\seeds mkdir dist\\seeds && copy src\\seeds\\pythonQuestions.json dist\\seeds\\",
     "seed": "node dist/seeds/seed.js",
     "start": "node dist/server.js",
     "watch": "nodemon dist/server.js",
